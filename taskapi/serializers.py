@@ -21,7 +21,7 @@ class DragandDropListSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = DragandDrop
-        fields = ['id','name','draggable', 'description','color','position', 'date','time','status','created_at']
+        fields = ['id','name','draggable', 'description','position', 'date','time','status','created_at']
 
 
 class DraggableSerializer(serializers.ModelSerializer):
