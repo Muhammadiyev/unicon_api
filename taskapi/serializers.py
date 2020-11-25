@@ -12,7 +12,7 @@ class DragandDropSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DragandDrop
-        fields = ['id','name','draggable', 'description','position', 'date','time','status','created_at']
+        fields = ['id','name','draggable', 'description','position', 'date','status','created_at']
 
 
 class DragandDropListSerializer(serializers.ModelSerializer):
@@ -21,7 +21,7 @@ class DragandDropListSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = DragandDrop
-        fields = ['id','name','draggable', 'description','position', 'color', 'date','time','status','created_at']
+        fields = ['id','name','draggable', 'description','position', 'color', 'date','status','created_at']
 
 
 class DraggableSerializer(serializers.ModelSerializer):
