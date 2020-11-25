@@ -21,6 +21,7 @@ class DragandDropViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.DragandDropSerializer
     filter_backends = (filters.DjangoFilterBackend,
                        SearchFilter, OrderingFilter)
+    search_fields = ['name']
     filter_fields = ['draggable']
 
 
@@ -30,6 +31,7 @@ class DragandDropListViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.DragandDropListSerializer
     filter_backends = (filters.DjangoFilterBackend,
                        SearchFilter, OrderingFilter)
+    search_fields = ['name']
     filter_fields = ['draggable']
 
 
