@@ -26,7 +26,7 @@ class DragandDropViewSet(viewsets.ModelViewSet):
 
 class DragandDropListViewSet(viewsets.ModelViewSet):
     permission_classes = []
-    queryset = DragandDrop.objects.all()
+    queryset = DragandDrop.objects.all().order_by('position')
     serializer_class = serializers.DragandDropListSerializer
     filter_backends = (filters.DjangoFilterBackend,
                        SearchFilter, OrderingFilter)
@@ -51,9 +51,3 @@ class DraggableListViewSet(viewsets.ModelViewSet):
                        SearchFilter, OrderingFilter)
     search_fields = ['name']
     filter_fields = ['drag_of_draggable']
-
-    def get_serializer_class(self):
-        serializer_class = serializers.DraggableListSerializer
-        if self.action in ['create', 'update', 'partial_update']:
-            serializer_class = serializers.DraggableListSerializer
-        return serializer_class

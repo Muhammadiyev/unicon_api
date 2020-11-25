@@ -16,12 +16,12 @@ class DragandDropSerializer(serializers.ModelSerializer):
 
 
 class DragandDropListSerializer(serializers.ModelSerializer):
-    #color = AddingColorSerializer(read_only=True, many=True)
+    color = AddingColorSerializer(read_only=True, many=True)
     id = serializers.IntegerField()
     
     class Meta:
         model = DragandDrop
-        fields = ['id','name','draggable', 'description','position', 'date','time','status','created_at']
+        fields = ['id','name','draggable', 'description','position', 'color', 'date','time','status','created_at']
 
 
 class DraggableSerializer(serializers.ModelSerializer):
@@ -46,7 +46,6 @@ class DraggableListSerializer(serializers.ModelSerializer):
                 parcel_id = drag_of_draggable.pop('id')
                 DragandDrop.objects.update_or_create(id=parcel_id, defaults=drag_of_draggable)
             else:
-                #user_id = validated_data['id']
                 drag_of_draggable = Draggable.objects.create(**drag_of_draggable)
                 instance.drag_of_draggable.add(drag_of_draggable)
    
